@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArwingControls : MonoBehaviour
 {
+    public float speed = 5;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,8 +14,20 @@ public class ArwingControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey("A") == true) {
+        if (Input.GetKey(KeyCode.A) == true) {
             transform.position += Vector3.left;
+        }
+        if (Input.GetKey(KeyCode.D) == true)
+        {
+            transform.position += Vector3.right;
+        }
+        if (Input.GetKey(KeyCode.W) == true)
+        {
+            transform.position += Vector3.up;
+        }
+        if (Input.GetKey(KeyCode.D) == true)
+        {
+            transform.position += Vector3.down;
         }
     }
 }
