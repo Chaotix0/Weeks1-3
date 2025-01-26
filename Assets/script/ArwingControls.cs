@@ -19,5 +19,19 @@ public class ArwingControls : MonoBehaviour
         pos.y += Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
         transform.position = pos;
+
+        Vector2 screenPos = Camera.main.ScreenToWorldPoint(pos);
+        pos.x += speed;
+
+        //Stopping the Arwing from going off screen
+        //x/horizontal value
+        if (pos.x < -11 || pos.x > 11) { 
+            speed = speed * 1;
+        }
+        //y/height value
+        if (pos.y < -5 || pos.y > 5)
+        {
+            speed = speed * -1;
+        }
     }
 }
