@@ -21,5 +21,8 @@ public class LerpDemo : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.Lerp(start.position, end.position, curve.Evaluate(t));
+        //gets the time and runs at 60fps
+        t += Time.deltaTime / 10;
+        t = t % 1;
     }
 }
