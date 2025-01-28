@@ -8,8 +8,11 @@ public class Laser : MonoBehaviour
     public float speed = 3;
     public bool laserShot = false;
     public Transform Arwing;
+    public AnimationCurve curve;
+    float t;
     void Update()
     {
+
         if (laserShot == true)
         {
             Movement();
@@ -33,6 +36,9 @@ public class Laser : MonoBehaviour
     //movement for laser
     void Movement()
     {
+        //scales down the laser so that it dissapears
+        t += Time.deltaTime;
         transform.position += transform.up * speed * Time.deltaTime;
+        transform.localScale = Vector2.one * curve.Evaluate(t);
     }
 }
